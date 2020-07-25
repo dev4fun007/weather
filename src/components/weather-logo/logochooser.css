@@ -1,0 +1,25 @@
+.header {
+    background: rgb(44, 42, 54);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 200px;
+}
+
+.weatherIcon {
+    height: 100px;
+    width: 100px;
+    height: 150px;
+    width: 150px;
+    margin-left: -2rem;
+}
+
+.weatherInfo {
+    color: white;
+    display: flex;
+    font-size: large;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}

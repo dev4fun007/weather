@@ -1,0 +1,19 @@
+.inputMain {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconLabel {
+    margin-left: 10px;
+}
+
+.search {
+    margin: 10px;
+}
+
+.currentLocation {
+    margin: 10px;
+}
