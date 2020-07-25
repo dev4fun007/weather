@@ -14,20 +14,30 @@ export default function Logochooser(props) {
     switch (weatherState) {
         case "Clear": weatherLogo = sunny; break;
         
+        // eslint-disable-next-line
         case "Drizzle": weatherLogo = rainy;
+        // eslint-disable-next-line
         case "Rain": weatherLogo = rainy; break;
 
         case "Clouds": weatherLogo = cloudy; break;
         case "Thunderstorm": weatherLogo = thunder; break;
         case "Snow": weatherLogo = snowy; break;
         
+        // eslint-disable-next-line
         case "Fog": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Dust": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Ash": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Tornado": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Smoke": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Mist": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Haze": weatherLogo = windy;
+        // eslint-disable-next-line
         case "Squall": weatherLogo = windy; break;
         default: weatherLogo = sunny;
     }
