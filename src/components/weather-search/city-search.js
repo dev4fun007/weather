@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./city-search.css";
-import { TextField, Fab } from '@material-ui/core';
-import { SearchRounded, MyLocationRounded } from '@material-ui/icons';
+import { TextField, Fab, Snackbar, IconButton } from '@material-ui/core';
+import { SearchRounded, MyLocationRounded, Close  } from '@material-ui/icons';
 
 
 //Constant part of the url to fetch the weather information
@@ -9,6 +9,9 @@ const baseURL = `https://api.openweathermap.org/data/2.5/weather?appid=1dc6ff122
 
 
 export default function CitySearch(props) {
+    //For snackbar state
+    const [open, setOpen] = useState(false);
+
     //Using query state object for getting city name
     const [query, setQuery] = useState('');
 
@@ -38,8 +41,13 @@ export default function CitySearch(props) {
      * @param {event} e 
      */
     const getWeatherForSearchedLocation = (e) => {
-        const url = `${baseURL}q=${query}`
-        fetchWeather(url);
+        //Fetch weather only if the textfield does have a value
+        if (query.length > 0) {
+            const url = `${baseURL}q=${query}`
+            fetchWeather(url);
+        } else {
+            setOpen(true);
+        }
     }
 
     /**
@@ -57,6 +65,14 @@ export default function CitySearch(props) {
                 console.log(result);
             });
     }
+
+    //Handle close button for the snackbar
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpen(false);
+      };    
 
     return (
         <div className="inputMain">
@@ -77,6 +93,20 @@ export default function CitySearch(props) {
                     </span>
                 </Fab>
             </div>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                open={open}
+                autoHideDuration={2000}
+                message="Type in a city to search!"
+                action={
+                    <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                        <Close fontSize="small" />
+                    </IconButton>
+                }
+            />
         </div>
     )
 }

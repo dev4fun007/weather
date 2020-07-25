@@ -17,4 +17,6 @@ jobs:
             - ~/.npm 
             - ~/.cache
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm build
+      - run: npm run build
+      - run: npm install -g serve
+      - run: serve -s build
